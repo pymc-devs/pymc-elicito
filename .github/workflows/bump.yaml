@@ -1,0 +1,78 @@
+name: Bump version
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_rule:
+        type: choice
+        description: How to bump the project's version (see https://docs.astral.sh/uv/reference/cli/#uv-version)
+        options:
+          - patch
+          - minor
+          - major
+          - stable
+          - alpha
+          - beta
+          - rc
+          - post
+          - dev
+        required: true
+
+jobs:
+  bump_version:
+    name: "Bump version and create changelog"
+    if: "!startsWith(github.event.head_commit.message, 'bump:')"
+    strategy:
+      matrix:
+        os: [ "ubuntu-latest" ]
+        python-version: [ "3.11" ]
+    runs-on: "${{ matrix.os }}"
+    env:
+      CI_COMMIT_EMAIL: "ci-runner@pymc-elicito.invalid"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+
+      - uses: ./.github/actions/setup
+        with:
+          python-version: ${{ matrix.python-version }}
+          uv-dependency-install-flags: "--all-extras --group dev"
+
+      - name: Create bump and changelog
+        run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$CI_COMMIT_EMAIL"
+
+          BASE_VERSION=`sed -ne 's/^version = "\([0-9\.post]*\)"/\1/p' pyproject.toml`
+          echo "Bumping from version $BASE_VERSION"
+
+          # Bump
+          uv version --bump ${{ github.event.inputs.bump_rule }}
+
+          NEW_VERSION=`sed -ne 's/^version = "\([0-9\.]*\)"/\1/p' pyproject.toml`
+          echo "Bumping to version $NEW_VERSION"
+
+          # Build CHANGELOG
+          uv run towncrier build --yes --version v$NEW_VERSION
+
+          # Commit, tag and push
+          git commit -a -m "bump: version $BASE_VERSION -> $NEW_VERSION"
+          git tag v$NEW_VERSION
+          git push && git push --tags
+
+          # Bump to alpha (so that future commits do not have the same
+          # version as the tagged commit)
+          BASE_VERSION=`sed -ne 's/^version = "\([0-9\.]*\)"/\1/p' pyproject.toml`
+
+          # Bump to pre-release of next version
+          uv version --bump post
+
+          NEW_VERSION=`sed -ne 's/^version = "\([0-9\.post]*\)"/\1/p' pyproject.toml`
+          echo "Bumping version $BASE_VERSION > $NEW_VERSION"
+
+          # Commit and push
+          git commit -a -m "bump(pre-release): version $BASE_VERSION > $NEW_VERSION"
+          git push

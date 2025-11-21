@@ -1,0 +1,18 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v0.14.4
+_src_path: gl:openscm/copier-core-python-repository
+conda_release: true
+email: florence.bockting@tu-dortmund.de
+include_cli: false
+name: Florence Bockting
+notebook_based_docs: true
+package_manager: uv
+pandas_doctests: true
+plot_dependencies: true
+project_description_short: Learning prior distributions for model parameters in a
+    Bayesian model based on expert information.
+project_name_human: PyMC elicito
+project_name_pip: pymc-elicito
+project_name_python: pymc_elicito
+project_url: https://github.com/pymc-devs/pymc-elicito
+track_lock_file: true
