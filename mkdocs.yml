@@ -28,6 +28,7 @@ theme:
         name: Switch to light mode
 
 plugins:
+  - mermaid2
   # https://mkdocstrings.github.io/autorefs/
   - autorefs
   # Required for auto-generating our documentation stubs
@@ -121,6 +122,11 @@ plugins:
   - section-index
 
 markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
   # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#attribute-lists
   - attr_list
   - footnotes

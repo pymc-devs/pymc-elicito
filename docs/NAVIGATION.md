@@ -9,6 +9,7 @@ See https://oprypin.github.io/mkdocs-literate-nav/
 - [Tutorials](tutorials/index.md)
 - [Further background](further-background/index.md)
     - [Dependency pinning and testing](further-background/dependency-pinning-and-testing.md)
+    - [Model architecture](further-background/model-architecture.md)
 - [Development](development.md)
 - [API reference](api/pymc_elicito/)
 - [Changelog](changelog.md)
