@@ -16,7 +16,8 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     ## If you apply an OSI-approved licence, you should uncomment the below
-    # "License :: OSI Approved :: BSD License",
+    ## Classifiers can be found here: https://pypi.org/classifiers/
+    "License :: OSI Approved :: Apache Software License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
