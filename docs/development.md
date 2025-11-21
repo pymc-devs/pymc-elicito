@@ -71,7 +71,9 @@ The steps required are the following:
    (which you can then add to the release if you want).
 
 1. Go to your conda feedstock repository
+   <!--
    (likely something like https://github.com/conda-forge/pymc-elicito-feedstock)
+   -->
    and make a new merge request that updates your `recipe/meta.yaml` file
    to point to the newly released version on PyPI.
 
