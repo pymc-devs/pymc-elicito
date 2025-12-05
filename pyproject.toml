@@ -96,6 +96,7 @@ dev = [
 docs = [
     # Key dependencies
     # ----------------
+    "mkdocs-mermaid2-plugin>=1.2.3",
     "attrs==25.3.0",
     "mkdocs-autorefs==1.4.2",
     "mkdocs-gen-files==0.5.0",

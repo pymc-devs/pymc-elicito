@@ -11,5 +11,4 @@ Points we will aim to cover:
 - Why it was created
 - Help the reader make connections
 
-We will aim to avoid writing instructions or technical descriptions here,
-they belong elsewhere.
+We will aim to avoid writing instructions or technical descriptions here, they belong elsewhere.
