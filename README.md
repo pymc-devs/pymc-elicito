@@ -1,8 +1,5 @@
 <!--- --8<-- [start:description] -->
-# PyMC elicito
-
-Learning prior distributions for parameters in a Bayesian model based on expert information.
-
+# PyMC elicito: A Python package for expert prior elicitation using PyMC
 **Key info :**
 [![Docs](https://readthedocs.org/projects/pymc-elicito/badge/?version=latest)](https://pymc-elicito.readthedocs.io)
 [![Main branch: supported Python versions](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fpymc-devs%2Fpymc-elicito%2Fmain%2Fpyproject.toml)](https://github.com/pymc-devs/pymc-elicito/blob/main/pyproject.toml)
@@ -50,9 +47,12 @@ Some suggested options:
   and we won't reply to any issues
 -->
 
-**Prototype**: 
+**Prototype**:
 This project is just starting up and the code is all prototype.
 Pymc-elicito re-implements the Python package [`elicito`](https://github.com/florence-bockting/elicito) using pymc instead of tensorflow(-probability) as dependency.
+
+## Description
+**Expert prior elicitation** aims to define prior distributions for parameters within a Bayesian model that accurately incorporate the expectations of a domain expert. The `elicito` computational framework supports the modular implementation of diverse expert prior elicitation methods.
 
 <!--- --8<-- [end:description] -->
 
