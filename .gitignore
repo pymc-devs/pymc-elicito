@@ -1,3 +1,6 @@
+# temporary ignoring
+src/pymc_elicito/optimization.py
+
 # Notebooks
 *.ipynb
 
