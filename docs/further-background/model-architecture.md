@@ -1,3 +1,7 @@
+# Software Architecture of `elicito`
+The core computational workflow of the expert prior elicitation method implemented in `elicito` is based on a simulation-based optimization approach: Given a generative model and a set of initial hyperparameters defining the prior distributions, the model can be run in forward mode to simulate elicited summaries by computing the predefined target quantities and summary statistics. These simulated summaries are then compared with the
+expert-elicited summaries obtained during the expert-elicitation stage. An iterative optimization scheme is employed to update the hyperparameters of the parametric prior distributions so as to minimize the discrepancy between simulated and expert-elicited summaries. In other words, the objective is to identify the vector of hyperparameters that yields the closest alignment between simulated and expert-elicited summaries.
+
 ```mermaid
 flowchart TB
     subgraph eliobj["Elicit class (user input)"]
