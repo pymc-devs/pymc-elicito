@@ -8,7 +8,10 @@ authors = [
 license = { text = "placeholder" }
 requires-python = ">=3.9"
 dependencies = [
+    "numpy>=2.0.2",
     "pandas>=2.3.3",
+    "pymc>=5.12.0",
+    "pytensor>=2.19.0",
 ]
 readme = "README.md"
 classifiers = [
@@ -41,7 +44,7 @@ Issues = "https://github.com/pymc-devs/pymc-elicito/issues"
 
 [project.optional-dependencies]
 plots = [
-    "matplotlib>=3.7.1",
+    "matplotlib>=3.9.4",
 ]
 full = [
     "pymc-elicito[plots]",
