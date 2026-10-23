@@ -20,7 +20,7 @@ runs:
       id: setup-uv
       uses: astral-sh/setup-uv@v4
       with:
-        version: "0.8.8"
+        version: "0.13.5"
         python-version: ${{ inputs.python-version }}
     - name: Install dependencies
       shell: bash
