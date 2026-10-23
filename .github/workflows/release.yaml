@@ -25,7 +25,7 @@ jobs:
         id: setup-uv
         uses: astral-sh/setup-uv@v4
         with:
-          version: "0.8.8"
+          version: "0.13.5"
           python-version: ${{ matrix.python-version }}
       - name: Add version to environment
         run: |
